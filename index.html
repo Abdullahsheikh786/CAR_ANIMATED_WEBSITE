@@ -1,0 +1,1505 @@
+<!-- 
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      background: #222;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      position: relative;
+      animation: slideDown 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { top: -100px; opacity: 0; }
+      to { top: 0; opacity: 1; }
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: #333;
+      width: 250px;
+      height: 250px;
+      margin: 20px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      transition: transform 0.5s, background 0.5s;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      background: #555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .button {
+      display: block;
+      margin: 50px auto;
+      padding: 15px 30px;
+      background: #28a745;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .button:hover {
+      background: #218838;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>My Animated Website</header>
+  <div class="container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+  </div>
+
+  <button class="button">Click Me!</button>
+
+
+
+  <script>
+    const button = document.getElementById('magicButton');
+    button.addEventListener('click', () => {
+      alert('Hello from JavaScript!');
+    });
+  </script>
+</body>
+</html>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Car Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 70%, #228B22 70%, #228B22 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Road */
+        .road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: #333;
+            border-top: 5px solid #fff;
+        }
+
+        .road::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(
+                to right,
+                #fff 0px,
+                #fff 50px,
+                transparent 50px,
+                transparent 100px
+            );
+            animation: roadLines 2s linear infinite;
+        }
+
+        @keyframes roadLines {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+
+        /* Car */
+        .car {
+            position: absolute;
+            bottom: 120px;
+            left: -200px;
+            width: 200px;
+            height: 100px;
+            animation: carMove 8s ease-in-out infinite;
+        }
+
+        @keyframes carMove {
+            0% { left: -200px; }
+            50% { left: calc(100% - 200px); }
+            100% { left: -200px; }
+        }
+
+        .car-body {
+            position: relative;
+            width: 180px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 20px 20px 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .car-top {
+            position: absolute;
+            top: -30px;
+            left: 40px;
+            width: 100px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff9ff3, #f368e0);
+            border-radius: 15px 15px 5px 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .windshield {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 80px;
+            height: 25px;
+            background: rgba(135, 206, 235, 0.7);
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+
+        .wheel {
+            position: absolute;
+            bottom: -20px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #333 30%, #666 70%);
+            border-radius: 50%;
+            border: 3px solid #222;
+            animation: wheelRotate 0.5s linear infinite;
+        }
+
+        .wheel.front {
+            right: 20px;
+        }
+
+        .wheel.back {
+            left: 20px;
+        }
+
+        @keyframes wheelRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .wheel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #999;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.8;
+            animation: cloudMove 15s linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            width: 80px;
+            height: 40px;
+            top: 20%;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+        } -->
+
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Motors - Animated Car Showroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--secondary);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2c3e50, #1a2530);
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 1.1s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .car-animation {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 60%;
+            z-index: 1;
+        }
+        
+        .car {
+            position: absolute;
+            bottom: 10%;
+            right: -300px;
+            width: 300px;
+            height: 150px;
+            transition: transform 0.5s;
+        }
+        
+        .car:hover {
+            transform: scale(1.1);
+        }
+        
+        .car img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #333;
+            z-index: 0;
+        }
+        
+        .road::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(to right, white, white 50px, transparent 50px, transparent 100px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .feature-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+        
+        /* Models Section */
+        .models {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .car-models {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .car-model {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .car-model:hover {
+            transform: translateY(-10px);
+        }
+        
+        .car-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .car-model:hover .car-image img {
+            transform: scale(1.1);
+        }
+        
+        .car-info {
+            padding: 20px;
+        }
+        
+        .car-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .car-info p {
+            color: #777;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .car-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .car-feature {
+            display: flex;
+            align-items: center;
+        }
+        
+        .car-feature i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .testimonial-slider {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+        
+        .testimonial {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author h4 {
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .testimonial-author p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-content {
+            color: #555;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 60px;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: serif;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-nav button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-nav button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: #777;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes drive {
+            0% {
+                right: -300px;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .car {
+                width: 250px;
+                height: 125px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .car {
+                width: 200px;
+                height: 100px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-slider {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+            
+            .testimonial-slide {
+                scroll-snap-align: start;
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+            
+            .car {
+                width: 150px;
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    Velocity Motors
+                </div>
+                <ul class="nav-links">
+                    <li><a hrefhome">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#models">Models</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience the Future of Driving</h1>
+                <p>Discover our premium collection of luxury and performance vehicles designed to elevate your driving experience.</p>
+                <a href="#models" class="btn">Explore Models</a>
+            </div>
+        </div>
+        <div class="car-animation">
+            <div class="car" id="hero-car">
+                <img src="https://picsum.photos/seed/car1/300/150.jpg" alt="Luxury Car">
+            </div>
+            <div class="road"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Velocity Motors</h2>
+                <p>We offer exceptional vehicles and an unparalleled customer experience. Discover what makes us different.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Every vehicle in our collection is meticulously inspected and maintained to ensure the highest standards of quality and performance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Expert Service</h3>
+                    <p>Our team of certified automotive professionals is dedicated to providing exceptional service and support for all your vehicle needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Warranty Coverage</h3>
+                    <p>All our vehicles come with comprehensive warranty coverage, giving you peace of mind with every purchase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models" id="models">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Car Models</h2>
+                <p>Explore our diverse collection of luxury and performance vehicles designed to meet your needs.</p>
+            </div>
+            <div class="car-models">
+                <div class="car-model">
+                    <div class="car-image">
+                        <img src="https://picsum.photos/seed/car2/400/200.jpg" alt="Sedan Car">
+                    </div>
+                    <div class="car-info">
+                        <h3>Velocity Sedan</h3>
+                        <p>Experience luxury and comfort with our premium sedan model, perfect for both daily commutes and long journeys.</p>
+                        <div class="car-price">$45,000</div>
+                        <div class="car-features">
+                            <div class="car-feature">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>320 HP</span>
+                            </div>
+                            <div class="car-feature">
+                                <i class="fas fa-road"></i>
+                                <span>28 MPG</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="car-model">
+                    <div class="car-image">
+                        <img src="https://picsum.photos/seed/car3/400/200.jpg" alt="SUV Car">
+                    </div>
+                    <div class="car-info">
+                        <h3>Velocity SUV</h3>
+                        <p>Combining spaciousness with powerful performance, our SUV offers the perfect blend of comfort and capability.</p>
+                        <div class="car-price">$52,000</div>
+                        <div class="car-features">
+                            <div class="car-feature">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>350 HP</span>
+                            </div>
+                            <div class="car-feature">
+                                <i class="fas fa-road"></i>
+                                <span>22 MPG</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="car-model">
+                    <div class="car-image">
+                        <img src="https://picsum.photos/seed/car4/400/200.jpg" alt="Sports Car">
+                    </div>
+                    <div class="car-info">
+                        <h3>Velocity Sports</h3>
+                        <p>For the ultimate driving experience, our sports model delivers breathtaking performance and precision handling.</p>
+                        <div class="car-price">$78,000</div>
+                        <div class="car-features">
+                            <div class="car-feature">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>450 HP</span>
+                            </div>
+                            <div class="car-feature">
+                                <i class="fas fa-road"></i>
+                                <span>18 MPG</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from our satisfied customers about their experience with Velocity Motors.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="https://picsum.photos/seed/person1/60/60.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-author">
+                                    <h4>John Smith</h4>
+                                    <p>Velocity Sedan Owner</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                I've been driving the Velocity Sedan for six months now, and I'm absolutely impressed with its performance and comfort. The customer service at Velocity Motors was exceptional throughout the purchasing process.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="https://picsum.photos/seed/person2/60/60.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-author">
+                                    <h4>Emily Johnson</h4>
+                                    <p>Velocity SUV Owner</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                The Velocity SUV has transformed my family trips. It's spacious, reliable, and the safety features give me peace of mind. I couldn't be happier with my purchase from Velocity Motors.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="https://picsum.photos/seed/person3/60/60.jpg" alt="Customer">
+                                </div>
+                                <div class="testimonial-author">
+                                    <h4>Michael Brown</h4>
+                                    <p>Velocity Sports Owner</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                As a car enthusiast, I've driven many high-performance vehicles, but the Velocity Sports truly stands out. The handling, acceleration, and design are second to none. The team at Velocity Motors made the buying experience enjoyable.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions about our vehicles or services? Reach out to us and we'll get back to you as soon as possible.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>123 Velocity Drive, Car City, CC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:info@velocitymotors.com">info@velocitymotors.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9AM - 8PM<br>Saturday - Sunday: 10AM - 6PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Velocity Motors</h3>
+                    <p>Providing premium vehicles and exceptional service since 2005. Discover the perfect car for your lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#models">Models</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">New Vehicles</a></li>
+                        <li><a href="#">Used Vehicles</a></li>
+                        <li><a href="#">Financing</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Buying Guide</a></li>
+                        <li><a href="#">Maintenance Tips</a></li>
+                        <li><a href="#">Vehicle Comparisons</a></li>
+                        <li><a href="#">Test Drive</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Velocity Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Car animation on hero section
+        const heroCar = document.getElementById('hero-car');
+        
+        function animateCar() {
+            heroCar.style.animation = 'drive 15s linear infinite';
+            
+            // Reset animation when it completes
+            heroCar.addEventListener('animationiteration', () => {
+                // Random slight variations for more natural movement
+                const randomY = Math.random() * 10 - 5; // -5 to 5 pixels
+                heroCar.style.transform = `translateY(${randomY}px)`;
+            });
+        }
+        
+        // Start animation when page loads
+        window.addEventListener('load', animateCar);
+        
+        // Testimonial slider
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        
+        function showSlide(index) {
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+            
+            // For mobile, use transform
+            if (window.innerWidth <= 768) {
+                testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            } else {
+                // For desktop, just show the slide
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === currentSlide ? 'block' : 'none';
+                });
+            }
+        }
+        
+        // Initialize testimonial slider
+        if (window.innerWidth > 768) {
+            showSlide(0);
+        } else {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === 0 ? 'block' : 'none';
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Auto slide for desktop
+        let slideInterval;
+        
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                if (window.innerWidth > 768) {
+                    showSlide(currentSlide + 1);
+                }
+            }, 5000);
+        }
+        
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+        
+        // Start auto slide when page loads
+        window.addEventListener('load', startAutoSlide);
+        
+        // Pause auto slide when user interacts with slider
+        prevButton.addEventListener('mouseenter', stopAutoSlide);
+        nextButton.addEventListener('mouseenter', stopAutoSlide);
+        prevButton.addEventListener('mouseleave', startAutoSlide);
+        nextButton.addEventListener('mouseleave', startAutoSlide);
+        
+        // Handle window resize for testimonial slider
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                showSlide(currentSlide);
+                startAutoSlide();
+            } else {
+                showSlide(currentSlide);
+                stopAutoSlide();
+            }
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For this demo, we'll just show a success message
+            
+            // Create a success notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#3498db';
+            notification.style.color = 'white';
+            notification.style.padding = '15px 25px';
+            notification.style.borderRadius = '5px';
+            notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            notification.style.zIndex = '1000';
+            notification.style.animation = 'fadeInUp 0.5s forwards';
+            notification.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+            
+            document.body.appendChild(notification);
+            
+            // Clear the form
+            contactForm.reset();
+            
+            // Remove the notification after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'fadeInUp 0.5s forwards reverse';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 5000);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
